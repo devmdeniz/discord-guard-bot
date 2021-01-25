@@ -6,7 +6,7 @@ var surum = ayarlar.surum
 var prefix = ayarlar.prefix;
 
 module.exports = client => {
-client.user.setActivity(""+prefix+"yardım", {
+client.user.setActivity(""+prefix+"help", {
   type: "STREAMING",
   url: "https://www.twitch.tv/eastromtv"
 });
