@@ -11,13 +11,13 @@ exports.run = async (bot, message, args) => {
   if (args[0] == "open" || args[0] == "close") {
     const i = db.set(`swear_${message.guild.id}`, "opened")
       message.channel.send(
-        "✅ Küfür Engelleme Sistemi başarıyla açıldı! Üyeleri Yasakla yetkisine sahip olanların küfürü engellenmicektir."
+        "✅ Swearing Block System is ACTIVE now"
       );
   }
   if (args[0] == "close") {
     const i = db.set(`swear_${message.guild.id}`, "closed")
       message.channel.send(
-        "✅ Küfür Engelleme Sistemi başarıyla kapatıldı! Artık herkes küfür yazabilir."
+        "❌ Swearing Block System is DEACTIVE now"
       );
   }
 };

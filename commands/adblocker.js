@@ -11,13 +11,13 @@ exports.run = async (bot, message, args) => {
   if (args[0] == "open") {
     const j = db.set(`ad_${message.guild.id}`, "opened")
       message.channel.send(
-        "✅ Reklam Engelleme Sistemi başarıyla açıldı! Üyeleri Yasakla yetkisine sahip olanların reklamları engellenmicektir."
+        "✅ AdBlock is ACTIVE now"
       );
   }
   if (args[0] == "close") {
     const j = db.set(`ad_${message.guild.id}`, "closed")
       message.channel.send(
-        "✅  Reklam Engelleme Sistemi kapatıldı! Artık herkes reklam paylaşabilir yazabilir."
+        "❌  Adblock is DEACTIVE now :(."
       );
   }
 };
