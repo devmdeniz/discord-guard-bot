@@ -17,6 +17,7 @@ const { join } = require("path");
 const { readdirSync } = require("fs");
 const ms = require("ms");
 const { PREFIX } = require("./settings.json");
+const secret = require("./secret.json");
 
 var prefix = ayarlar.prefix;
 const log = message => {
@@ -213,4 +214,4 @@ client.on("message", msg => {
   });
 
 
-client.login(process.env.TOKEN);
+client.login(secret.TOKEN);
