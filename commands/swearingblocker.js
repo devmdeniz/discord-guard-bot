@@ -8,7 +8,7 @@ exports.run = async (bot, message, args) => {
     );
   if (!message.member.hasPermission("MANAGE_GUILD"))
     return message.channel.send("You must have `MANAGE GUILD` permission!");
-  if (args[0] == "open" || args[0] == "close") {
+  if (args[0] == "open") {
     const i = db.set(`swear_${message.guild.id}`, "opened")
       message.channel.send(
         "✅ Swearing Block System is ACTIVE now"
