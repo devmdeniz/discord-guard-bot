@@ -19,7 +19,7 @@ const ms = require("ms");
 const { PREFIX } = require("./settings.json");
 const secret = require("./secret.json");
 
-var prefix = ayarlar.prefix;
+var prefix = settings.prefix;
 const log = message => {
   console.log(`[${moment().format("YYYY-MM-DD HH:mm:ss")}] ${message}`);
 };
