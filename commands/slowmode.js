@@ -1,20 +1,19 @@
 const Discord = require("discord.js");
-
 exports.run = async (client, message, args) => {
   if (message.channel.type !== "text") return;
   const limit = args[0] ? args[0] : 0;
   if (!limit) {
     var embed = new Discord.RichEmbed()
-      .setDescription(`Doğru kullanım: \`yavaş-mod [0/10]\``)
+      .setDescription("please try" + settings.prefix + "slowmode [0-10]")
       .setColor("RANDOM")
       .setTimestamp();
     message.channel.send({ embed });
     return;
   }
-  if (limit > 10) {
+  if (limit > 60) {
     return message.channel.sendEmbed(
       new Discord.RichEmbed()
-        .setDescription("Süre limiti maksimum **10** saniye olabilir.")
+        .setDescription("You can enter maximum 60")
         .setColor("RANDOM")
     );
   }
@@ -23,7 +22,7 @@ exports.run = async (client, message, args) => {
     message.channel.sendEmbed(
     new Discord.RichEmbed()
       .setDescription(
-        `Yazma süre limiti kaldırılmıştır.`
+        `Slowmode Removed`
       )
       .setColor("RANDOM")
   );
@@ -33,7 +32,7 @@ exports.run = async (client, message, args) => {
   message.channel.sendEmbed(
     new Discord.RichEmbed()
       .setDescription(
-        `Yazma süre limiti **${limit}** saniye olarak ayarlanmıştır.`
+        `Slowmode set to  **${limit}** seconds.`
       )
       .setColor("RANDOM")
   )};
@@ -54,12 +53,12 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["slow-mode", "slowmode", "yavas-mod", "yavasmod", "yavaşmod"],
+  aliases: ["slow-mode"],
   permLevel: 3
 };
 
 exports.help = {
-  name: "yavaş-mod",
-  description: "Sohbete yazma sınır (süre) ekler.",
-  usage: "yavaş-mod [1/10]"
+  name: "slowmode",
+  description: "",
+  usage: ""
 };
