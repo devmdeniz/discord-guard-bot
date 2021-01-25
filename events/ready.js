@@ -1,9 +1,9 @@
 const chalk = require('chalk');
 const moment = require('moment');
 const Discord = require('discord.js');
-const ayarlar = require('../settings.json');
-var surum = ayarlar.surum
-var prefix = ayarlar.prefix;
+const settings = require('../settings.json');
+var version = settings.version
+var prefix = settings.prefix;
 
 module.exports = client => {
 client.user.setActivity(""+prefix+"help", {
