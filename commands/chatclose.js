@@ -1,4 +1,5 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
+const settings = require("../settings.json")
 exports.run = (client, message, args) => {
 
   let every = message.guild.roles.find(r => r.name === '@everyone')
@@ -8,18 +9,18 @@ message.channel.overwritePermissions(every, {
 })
  
 
-   message.channel.send('Sohbet kanalı ``Yazılabilir`` durumundan çıkıldı.\nSohbet kanalını açmak için ``z!aç`` yazmanız gerekmektedir.');
+   message.channel.send('Chat is closed. If you want the chat to open you need to use the '+ settings.token + 'openchat command');
 }
  
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['chatkapa', 'sohbetkapa','sohbetkapat'],
+  aliases: ['chatclose', 'close-chat','chat-close'],
   permLevel: 3
 };
 
 exports.help = {
-  name: 'sohbet-kapat',
+  name: 'closechat',
   description: '',
   usage: ''
 };
