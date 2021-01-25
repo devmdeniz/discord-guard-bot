@@ -1,5 +1,5 @@
 // enable-pnpm-------------------------------------------------------------
-const ayarlar = require("./settings.json");
+const settings = require("./settings.json");
 const chalk = require("chalk");
 const Discord = require("discord.js");
 const discord = require("discord.js");
@@ -25,15 +25,15 @@ const log = message => {
 };
 
 //============================================================================================
-//Altyapı
+//IMPORTANT
 //============================================================================================
 
 //============================================================================================
-//Altyapı
+//IMPORTANT
 //============================================================================================
 
 //============================================================================================
-//Altyapı
+//IMPORTANT
 //============================================================================================
 
 client.commands = new Discord.Collection();
@@ -109,8 +109,8 @@ client.elevation = message => {
   let permlvl = 0;
   if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
   if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
-  if (message.author.id === ayarlar.sahip) permlvl = 4;
-  if (message.author.id === ayarlar.sahip2) permlvl = 4;
+  if (message.author.id === settings.owner) permlvl = 4;
+  if (message.author.id === settings.owner2) permlvl = 4;
   return permlvl;
 };
 
@@ -120,69 +120,45 @@ var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
 // });
 
 //============================================================================================
-//Altyapı
+//IMPORTANT
 //============================================================================================
 
 //============================================================================================
-//Altyapı
+//IMPORTANT
 //============================================================================================
 
 //============================================================================================
-//Altyapı
+//IMPORTANT
 //===========================================================================================
 client.on("message", msg => {
-  const i = db.get(`kufur_${msg.guild.id}`)
-    if (i == "acik") {
-      const kufur = [
-        "oç",
-        "amk",
-        "ananı sikiyim",
-        "ananısikm",
-        "piç",
-        "amk",
-        "amisk",
-        "sikim",
-        "sikiyim",
-        "orospu çocuğu",
-        "piç kurusu",
-        "kahpe",
-        "orospu",
-        "mal",
-        "sik",
-        "yarrak",
-        "orospunun evladı",
-        "amcık",
-        "amck",
-        "yarram",
-        "sikimi ye",
-        "ananısKm",
-        "amnskm",
-        "amknskm",
-        "siktir",
-        "amsnkm"
+  const i = db.get(`swear_${msg.guild.id}`)
+    if (i == "opened") {
+      const swearing = [
+        "badword1",
+        "badword2"
       ];
-      if (kufur.some(word => msg.content.includes(word))) {
+      if (swearing.some(word => msg.content.includes(word))) {
         try {
           if (!msg.member.hasPermission("BAN_MEMBERS")) {
             msg.delete();
             return msg
-              .reply("Küfür etmemelisin! ⚠")
+              .reply("STOP SWEARING! ⚠")
               .then(msg => msg.delete(3000));
           }
         } catch (err) {
           console.log(err);
         }
       }
-    } else if (i == "kapali") {
+    } else if (i == "closed") {
     }
     if (!i) return;
   });
 
 
 client.on("message", msg => {
-  const j = db.get(`reklam_${msg.guild.id}`)
-    if (j == "acik") {
-      const reklam = [
+  const j = db.get(`ad_${msg.guild.id}`)
+    if (j == "opened") {
+      const adblocker = [
         "https://discord.gg",
         "discord.gg",
         "discordgg",
@@ -196,19 +172,19 @@ client.on("message", msg => {
               
       
       ];
-      if (reklam.some(ad => msg.content.includes(ad))) {
+      if (adblocker.some(ad => msg.content.includes(ad))) {
         try {
           if (msg.member.hasPermission("BAN_MEMBERS")) {
             msg.delete();
             return msg
-              .reply("Reklam YAPMA! ⚠")
+              .reply("Do not advertise! ⚠")
               .then(msg => msg.delete(3000));
           }
         } catch (err) {
           console.log(err);
         }
       }
-    } else if (j == "kapali") {
+    } else if (j == "closed") {
     }
     if (!j) return;
   });
