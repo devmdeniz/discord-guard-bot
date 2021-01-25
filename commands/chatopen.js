@@ -8,18 +8,18 @@ message.channel.overwritePermissions(every, {
 })
  
 
-   message.channel.send('Sohbet kanalı ``Yazılabilir`` durumuna getirildi.\nSohbet kanalını kapatmak için ``z!kapat`` yazmanız gerekmektedir.');
+   message.channel.send('Chat is opened. If you want the chat to close you need to use the '+ settings.token + 'closechat command');
 }
  
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['chatac', 'sohbetac','sohbetaç'],
+  aliases: ['chatopen', 'chat-open','open-chat'],
   permLevel: 3
 };
 
 exports.help = {
-  name: 'sohbet-aç',
+  name: 'openchat',
   description: '',
-  usage: 'aç'
+  usage: ''
 };
